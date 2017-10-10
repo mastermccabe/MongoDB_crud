@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Mongoose</title>
+</head>
+
+<body>
+  <div id="wrapper" class="container">
+    <h1>Here are the awesome animals</h1>
+    <% for (var i in animal) { %>
+
+      <h3>Animal <a href = "/mongooses/<%=animal[i].id%>"> <%= animal[i].name %> </a></h3>
+      <p>Quote:
+        <%= animal[i].info %>
+      </p>
+      <%= animal[i].created_at %>
+        <a href="/mongooses/<%=animal[i].id%>/delete"> Delete <%= animal.name %> </a>
+        <hr>
+        <% } %>
+
+          <br> <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">go back</a>
+  </div>
+  <% if(typeof(errors) != 'undefined' ) { %>
+    <% for (var x in errors) { %>
+      <h3><%= errors[x].messages %></h3>
+      <% } %>
+        <% } %>
+</body>
+
+</html>
